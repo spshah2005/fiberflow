@@ -1,0 +1,1 @@
+Using k_means algorithm to extract key colors from images and reconstruct complex images with simplified colors. Future direction is to take this information and construct a crochet guide stitch-by-stitch to create beautiful tapestries with complex images.
