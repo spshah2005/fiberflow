@@ -10,28 +10,15 @@ CORS(app)
 #upload route
 @app.route("/upload", methods=['POST'])
 
-def upload(): 
-    # try:
-    #     # Retrieve form data
-    #     form_data = request.form
-        
-    #     # Convert form data to dictionary
-    #     print(form_data)
-    #     data = {key: form_data[key] for key in form_data}
-    #     img = request.files['image']
-    #     newimg = kmeans(img)
-    #     data['kmeans_image'] = newimg
-    #     print(newimg)
-    #     return send_file(newimg, mimetype='image/png', as_attachment=True, attachment_filename='kmeans_out.png')
+def upload():
     try:
         file = request.files['image']
         # Open the image file
         img = Image.open(file.stream)
         
         # Perform some processing on the image (e.g., convert to grayscale)
-        #out_img = ImageOps.grayscale(img)
-        out_img = kmeans(img)
-        
+        pixelated = reduceSize(img)
+        out_img = kmeans(pixelated)
         # Save processed image to a BytesIO object
         img_io = BytesIO()
         out_img.save(img_io, 'PNG')
@@ -42,6 +29,13 @@ def upload():
     except Exception as e:
         # In case of an error, return an error message
         return jsonify({'error': str(e)}), 500
+
+def reduceSize(im):
+    #new dimensions via list comprehension
+    new_dims = [int(np.round(a*0.1)) for a in im.size]
+    #downsample, upsample, and return
+    print('new dims', new_dims)
+    return im.resize(new_dims).resize(im.size, resample = 4)
 
 def openImage(image):
     pix = image.load()

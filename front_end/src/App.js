@@ -8,7 +8,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             file: null,
-            kmeans: null
+            kmeans: "https://t4.ftcdn.net/jpg/03/16/15/47/360_F_316154790_pnHGQkERUumMbzAjkgQuRvDgzjAHkFaQ.jpg"
         }
         this.handleChange = this.handleChange.bind(this)
     }
