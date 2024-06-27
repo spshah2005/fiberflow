@@ -18,9 +18,10 @@ def upload():
         #extract paramaeters
         width = request.form['width']
         height = request.form['height']
+        K = request.form['k']
         # Perform some processing on the image (e.g., convert to grayscale)
         pixelated = reduceSize(img,[int(width),int(height)])
-        out_img = kmeans(pixelated)
+        out_img = kmeans(pixelated,int(K))
         # Save processed image to a BytesIO object
         img_io = BytesIO()
         out_img.save(img_io, 'PNG')
@@ -114,9 +115,8 @@ def constructKMeansImg(centers,clusters,imgArray):
     print('output complete')
     return output_image
     
-def kmeans(im):
+def kmeans(im,k):
     imgArray = openImage(im)
-    k = 8
     print('image openned')
     centroids = chooseCentroids(k,imgArray)
     #print(centroids)

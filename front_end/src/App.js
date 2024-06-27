@@ -62,6 +62,11 @@ class App extends React.Component {
                             <input required name="height" type="number" id="height_input"></input>
                         </div>
                         <br></br>
+                        <div id="k_means">
+                            <label htmlFor="k">how many colors would you like to use? </label>
+                            <input required name="k" type="number" id="k"></input>
+                        </div>
+                        <br></br>
                         <div id="image">
                             <label htmlFor="img_input">upload your image </label>
                             <input required name="image" type="file" id="img_input"></input>
