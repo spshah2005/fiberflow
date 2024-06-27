@@ -9,15 +9,17 @@ app = Flask(__name__)
 CORS(app)
 #upload route
 @app.route("/upload", methods=['POST'])
-
 def upload():
+    print("i'm allive")
     try:
         file = request.files['image']
         # Open the image file
         img = Image.open(file.stream)
-        
+        #extract paramaeters
+        width = request.form['width']
+        height = request.form['height']
         # Perform some processing on the image (e.g., convert to grayscale)
-        pixelated = reduceSize(img)
+        pixelated = reduceSize(img,[int(width),int(height)])
         out_img = kmeans(pixelated)
         # Save processed image to a BytesIO object
         img_io = BytesIO()
@@ -30,9 +32,9 @@ def upload():
         # In case of an error, return an error message
         return jsonify({'error': str(e)}), 500
 
-def reduceSize(im):
+def reduceSize(im,new_dims):
     #new dimensions via list comprehension
-    new_dims = [int(np.round(a*0.1)) for a in im.size]
+    # new_dims = [int(np.round(a*pixelation)) for a in im.size]
     #downsample, upsample, and return
     print('new dims', new_dims)
     return im.resize(new_dims).resize(im.size, resample = 4)
