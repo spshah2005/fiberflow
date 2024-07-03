@@ -1,19 +1,14 @@
-import React,  {useState} from 'react';
+import React from 'react';
 
 const UploadPage= (props) => {
-    const [inputFile, setInputFile] = useState(props.input)
-    const [newWidth, setNewWidth] = useState(props.newWidth)
-    const [newHeight, setNewHeight] = useState(props.newHeight)
-    const [kmeansFile, setKmeansFile] = useState(props.kmeans)
-
     function handleSubmit(event) {
         event.preventDefault();
         const form_image = document.getElementById('img_input');
         const fileurl = URL.createObjectURL(form_image.files[0]);
-        setInputFile(fileurl);
-        setNewWidth(document.getElementById('width_input'));
-        setNewHeight(document.getElementById('height_input'));
-        setKmeansFile('https://secure2.bac-assets.com/sparta/auth/forgot/spa-assets/images/assets-images-site-secure-ah-forgot-common-loader_black-CSX85ecad56.gif');
+        props.setInput(fileurl);
+        props.setWidth(Number(document.getElementById('width_input').value));
+        props.setHeight(Number(document.getElementById('height_input').value));
+        props.setKmeans('https://secure2.bac-assets.com/sparta/auth/forgot/spa-assets/images/assets-images-site-secure-ah-forgot-common-loader_black-CSX85ecad56.gif');
         const form = event.target;
         const formData = new FormData(form);
 
@@ -33,7 +28,8 @@ const UploadPage= (props) => {
         .then(blob => {
             const url = window.URL.createObjectURL(blob);
             console.log(url)
-            setKmeansFile(url)
+            props.setKmeans(url)
+            props.setFormSubmitted(true);
         })
         .catch(error => {
             console.error('Error:', error)
@@ -76,16 +72,16 @@ const UploadPage= (props) => {
             <div className="parent">
                 <div className="child1">
                     <h3>input image</h3>
-                    <img src={inputFile} className="inputImage" alt = ''  />
+                    <img src={props.input} className="inputImage" alt = ''  />
                 </div>
                 <div className="child2">
                     <h3>output image</h3>
-                    <img src={kmeansFile} className="outputImage" alt = ''  /> 
+                    <img src={props.kmeans} className="outputImage" alt = ''  /> 
                 </div>
             </div>
 
             <div className="next_options">
-                <button id="next_button">Continue</button>
+                {props.formSubmitted && <a href="/grid" id="to_grid_button"><button to="/grid">Grid</button></a>}
                 <button id="download_image">Download</button>
             </div>
         </div> 

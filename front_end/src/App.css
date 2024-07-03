@@ -52,6 +52,13 @@ h1{
 #next_button, #download_image {
   margin: 15px;
 }
+
+#myCanvas {
+  border: 3px solid black;
+}
+#grid_container {
+  text-align: center;
+}
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
