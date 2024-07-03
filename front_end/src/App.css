@@ -6,6 +6,7 @@
   text-align: left;
   margin: auto;
 }
+
 h1{
   text-align: center;
 }
@@ -57,7 +58,20 @@ h1{
   border: 3px solid black;
 }
 #grid_container {
-  text-align: center;
+  text-align: right;
+}
+.scrollable-container {
+  width: 60%; /* Adjust based on your requirement */
+  height: 80vh; /* Adjust based on your requirement */
+  overflow: auto;
+  border: 2px solid #000; /* Optional: for visual clarity */
+  position: relative;
+}
+
+.canvas {
+  width: 1000px; /* Canvas width larger than the container */
+  height: 1000px; /* Canvas height larger than the container */
+  border: 2px solid black;
 }
 /* .App-logo {
   height: 40vmin;

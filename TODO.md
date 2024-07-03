@@ -1,6 +1,4 @@
-- Add new page to actually create tapestry
 - Included components are creating the grid, zoom in, zoom out features, crochet-along features
 - GPS style instructions (include accessibility such as in-ear, eye-tracking, gesture-tracking, or more)
 - Add yarn API to choose colors which can actually be bought and used
 - Add save feature
-- Figure out Page Navigation

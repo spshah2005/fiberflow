@@ -8,6 +8,7 @@ const UploadPage= (props) => {
         props.setInput(fileurl);
         props.setWidth(Number(document.getElementById('width_input').value));
         props.setHeight(Number(document.getElementById('height_input').value));
+        props.setFormSubmitted(false);
         props.setKmeans('https://secure2.bac-assets.com/sparta/auth/forgot/spa-assets/images/assets-images-site-secure-ah-forgot-common-loader_black-CSX85ecad56.gif');
         const form = event.target;
         const formData = new FormData(form);
@@ -81,8 +82,8 @@ const UploadPage= (props) => {
             </div>
 
             <div className="next_options">
-                {props.formSubmitted && <a href="/grid" id="to_grid_button"><button to="/grid">Grid</button></a>}
-                <button id="download_image">Download</button>
+                {props.formSubmitted && <a href="/grid" id="to_grid_button"><button to="/grid">Grid it!</button></a>}
+                {props.formSubmitted && <button id="download_image">Download</button>}
             </div>
         </div> 
     );
