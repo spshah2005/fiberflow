@@ -41,9 +41,32 @@ const App = () => {
       localStorage.setItem('formSubmitted', JSON.stringify(formSubmitted));
     }, [formSubmitted]);
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/"  element={<UploadPage 
+        // <BrowserRouter>
+        //     <Routes>
+        //         <Route path="/"  element={<UploadPage 
+        //             input={input} 
+        //             setInput={setInput} 
+        //             newWidth={newWidth} 
+        //             setWidth={setNewWidth} 
+        //             newHeight={newHeight} 
+        //             setHeight={setNewHeight} 
+        //             kmeans={kmeans} 
+        //             setKmeans={setKmeans} 
+        //             formSubmitted={formSubmitted} 
+        //             setFormSubmitted={setFormSubmitted}/> }/>
+
+        //         <Route path="/grid" element={<GridPage 
+        //             kmeans={kmeans}
+        //             width = {newWidth}
+        //             height={newHeight}
+        //             setKmeans = {setKmeans}
+        //             setWidth = {setNewWidth}
+        //             setHeight = {setNewHeight}/>} />
+
+        //     </Routes>
+        // </BrowserRouter>
+        <div class="fullApp">
+        <UploadPage 
                     input={input} 
                     setInput={setInput} 
                     newWidth={newWidth} 
@@ -53,18 +76,15 @@ const App = () => {
                     kmeans={kmeans} 
                     setKmeans={setKmeans} 
                     formSubmitted={formSubmitted} 
-                    setFormSubmitted={setFormSubmitted}/> }/>
-
-                <Route path="/grid" element={<GridPage 
-                    kmeans={kmeans}
-                    width = {newWidth}
-                    height={newHeight}
-                    setKmeans = {setKmeans}
-                    setWidth = {setNewWidth}
-                    setHeight = {setNewHeight}/>} />
-
-            </Routes>
-        </BrowserRouter>
+                    setFormSubmitted={setFormSubmitted} /> 
+          <GridPage 
+                       kmeans={kmeans}
+                       width = {newWidth}
+                       height={newHeight}
+                       setKmeans = {setKmeans}
+                       setWidth = {setNewWidth}
+                       setHeight = {setNewHeight} />
+          </div>
     );
     
 }

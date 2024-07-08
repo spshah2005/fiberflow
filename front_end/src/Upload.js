@@ -1,4 +1,6 @@
 import React from 'react';
+import logo from './fiberflow_logo.png';
+import header from './title.png'
 
 const UploadPage= (props) => {
     function handleSubmit(event) {
@@ -9,7 +11,7 @@ const UploadPage= (props) => {
         props.setWidth(Number(document.getElementById('width_input').value));
         props.setHeight(Number(document.getElementById('height_input').value));
         props.setFormSubmitted(false);
-        props.setKmeans('https://secure2.bac-assets.com/sparta/auth/forgot/spa-assets/images/assets-images-site-secure-ah-forgot-common-loader_black-CSX85ecad56.gif');
+        props.setKmeans(logo);
         const form = event.target;
         const formData = new FormData(form);
 
@@ -38,9 +40,10 @@ const UploadPage= (props) => {
     }
     return (
         <div className="App">
-
+            <div class="title_container">
+                <img src={header} alt='' class="title"/>
+            </div>
             <div className="form_section">
-                <h1 style={{fontFamily: 'Dancing Script, cursive'}}>pic to tapestry</h1>
                 <form id="form" onSubmit={handleSubmit}>
                     <fieldset id="tapestry_info">
                         <legend>insert info on how you want to format your tapestry</legend>
@@ -82,7 +85,6 @@ const UploadPage= (props) => {
             </div>
 
             <div className="next_options">
-                {props.formSubmitted && <a href="/grid" id="to_grid_button"><button to="/grid">Grid it!</button></a>}
                 {props.formSubmitted && <button id="download_image">Download</button>}
             </div>
         </div> 

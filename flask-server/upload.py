@@ -38,7 +38,7 @@ def reduceSize(im,new_dims):
     # new_dims = [int(np.round(a*pixelation)) for a in im.size]
     #downsample, upsample, and return
     print('new dims', new_dims)
-    return im.resize(new_dims).resize(im.size, resample = 4)
+    return im.resize(new_dims).resize(im.size,resample=4)
 
 def openImage(image):
     pix = image.load()
@@ -111,6 +111,7 @@ def constructKMeansImg(centers,clusters,imgArray):
     for r in range(len(imgArray)):
         for c in range(len(imgArray[0])):
             newImg[r][c] = colorMap[imgArray[r][c]]
+    print(len(imgArray), len(imgArray[0]))
     output_image = Image.fromarray(np.uint8(newImg))
     print('output complete')
     return output_image

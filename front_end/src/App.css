@@ -1,7 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
 
+.fullApp {
+  background-color: #FEE8F6;
+}
+.title_container {
+  text-align: center;
+  padding: 10px;
+}
+.title {
+  width: 20%;
+  height: 20%;
+}
 .form_section {
-  width: 60%;
+  width: 80%;
   max-width: 900px;
   text-align: left;
   margin: auto;
@@ -34,7 +45,7 @@ h1{
   border-radius: 10px;
 }
 .parent {
-  width: 60%;
+  width:80%;
   height: 100%;
   min-height: 250px;
   display: flex;
@@ -58,19 +69,20 @@ h1{
   border: 3px solid black;
 }
 #grid_container {
-  text-align: right;
+  text-align: center;
 }
 .scrollable-container {
-  width: 60%; /* Adjust based on your requirement */
-  height: 80vh; /* Adjust based on your requirement */
+  width: 62%; /* Adjust based on your requirement */
+  height: 100vh; /* Adjust based on your requirement */
   overflow: auto;
   border: 2px solid #000; /* Optional: for visual clarity */
   position: relative;
+  margin: auto;
 }
 
 .canvas {
-  width: 1000px; /* Canvas width larger than the container */
-  height: 1000px; /* Canvas height larger than the container */
+  width: 200%; /* Canvas width larger than the container */
+  height: 200%; /* Canvas height larger than the container */
   border: 2px solid black;
 }
 /* .App-logo {
